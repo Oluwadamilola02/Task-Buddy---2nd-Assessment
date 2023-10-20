@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../public/Screenshot 2023-10-19 004003.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../public/Screenshot 2023-10-19 004003.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../public/Screenshot 2023-10-19 004003.png"
+    />
+    <link rel="manifest" href="../public/site.webmanifest" />
+    <link rel="stylesheet" href="../public/style.css" />
+    <title><%=siteName%> | Welcome</title>
+  </head>
+  <body>
+    <div id="rootContainer">
+      <div id="hAndMContainer">
+        <header>
+          <div id="logoAndNav">
+            <a href="/"
+              ><img
+                id="logo"
+                src="../public/Screenshot 2023-10-19 004003.png"
+                alt="My to do app logo"
+            /></a>
+            <%-include("partials/header.ejs")-%>
+          </div>
+          <hr />
+          <h1 id="caption">
+            <strong>Task Buddy</strong>, THE IDEAL TASK MANAGEMENT SYSTEM.
+          </h1>
+        </header>
+
+        <main id="indexMain">
+          <div id="indexParagraphs">
+            <p>
+              <strong>Task Buddy</strong> is an application that provides a
+              seamless service to help you manage your tasks effectively.
+            </p>
+            <p>
+              It features top-notch microservices designed to put you ahead of
+              the game and avoid cluttered activities that lead to missed
+              deadlines.
+            </p>
+            <p>
+              Don't wait any longer, try <strong>Task Buddy</strong> today and
+              stay on top of your tasks!
+            </p>
+          </div>
+          <div id="homeContainer">
+            <p class="before">
+              <a id="anchor" href="signup">Get started</a> with
+              <strong>Task Buddy</strong>
+            </p>
+
+            <p class="before">Already have an account?</p>
+            <p class="login">
+              <a id="anchor" href="/login">Login</a> to
+              <strong>Task Buddy</strong>.
+            </p>
+          </div>
+        </main>
+      </div>
+      <footer><%-include("partials/footer.ejs")-%></footer>
+    </div>
+  </body>
+</html>

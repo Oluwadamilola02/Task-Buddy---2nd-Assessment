@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../public/Screenshot 2023-10-19 004003.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../public/Screenshot 2023-10-19 004003.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../public/Screenshot 2023-10-19 004003.png"
+    />
+    <link rel="manifest" href="../public/site.webmanifest" />
+    <link rel="stylesheet" href="../public/style.css" />
+    <title><%=siteName%> | dashboard</title>
+  </head>
+  <body>
+    <div id="rootContainer">
+      <div id="hAndMContainer">
+        <header id="dashHeader">
+          <div id="logoAndNav">
+            <a href="/"
+              ><img
+                id="logo"
+                src="../public/Screenshot 2023-10-19 004003.png"
+                alt="my todo app logo"
+            /></a>
+            <%-include("partials/header.ejs")-%>
+          </div>
+          <span id="date"><%=date%></span>
+          <hr />
+          <%if(user){%>
+          <h1>
+            Welcome <span><%= user.username%></span> to your task management
+            dashboard
+          </h1>
+          <h3>
+            <b>Note:</b>When a task is completed, click the "pending" button to
+            mark it completed or otherwise.
+          </h3>
+        </header>
+        <div id="taskTable">
+          <main>
+            <table>
+              <tr>
+                <th>WHAT TO DO</th>
+                <th>STATE</th>
+                <th></th>
+              </tr>
+              <%taskInfos.forEach(taskInfo=>{%> <%if(taskInfo.state ==
+              "pending"){%>
+              <tr>
+                <td><%=taskInfo.task_name%></td>
+
+                <td>
+                  <form action="/tasks/update/<%=taskInfo._id%>" method="PUT">
+                    <input
+                      id="stateInput"
+                      type="text"
+                      name="state"
+                      value="completed"
+                    />
+                    <button
+                      id="state"
+                      type="submit"
+                      formmethod="post"
+                      title="click to mark your task completed"
+                      style="background-color: #fff"
+                    >
+                      <%=taskInfo.state%>
+                    </button>
+                  </form>
+                </td>
+
+                <td>
+                  <form action="/tasks/<%=taskInfo._id%>" method="DELETE">
+                    <button
+                      id="delButon"
+                      type="submit"
+                      formmethod="post"
+                      title="delete task"
+                    >
+                      <img
+                        src="../public/delete_icon.svg"
+                        alt="delete"
+                        id="delIcon"
+                      />
+                      <figcaption>delete</figcaption>
+                    </button>
+                  </form>
+                </td>
+              </tr>
+              <%}else{%>
+              <tr>
+                <td><%=taskInfo.task_name%></td>
+
+                <td>
+                  <form action="/tasks/update/<%=taskInfo._id%>" method="PUT">
+                    <input
+                      id="stateInput"
+                      type="text"
+                      name="state"
+                      value="pending"
+                    />
+                    <button
+                      id="state"
+                      type="submit"
+                      formmethod="post"
+                      title="click to mark your task pending"
+                    >
+                      <%=taskInfo.state%>
+                    </button>
+                  </form>
+                </td>
+
+                <td>
+                  <form action="/tasks/<%=taskInfo._id%>" method="DELETE">
+                    <button
+                      id="delButon"
+                      type="submit"
+                      formmethod="post"
+                      title="delete task"
+                    >
+                      <img
+                        src="../public/delete_icon.svg"
+                        alt="delete"
+                        id="delIcon"
+                      />
+                      <figcaption>delete</figcaption>
+                    </button>
+                  </form>
+                </td>
+              </tr>
+              <%}%> <%})%>
+            </table>
+            <% }else{%>
+            <p>>please <a href="/login">login</a></p>
+            <%}%>
+          </main>
+        </div>
+      </div>
+      <footer><%-include("partials/footer.ejs")-%></footer>
+    </div>
+  </body>
+</html>

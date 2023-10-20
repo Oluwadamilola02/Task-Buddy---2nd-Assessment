@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../public/Screenshot 2023-10-19 004003.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../public/Screenshot 2023-10-19 004003.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../public/Screenshot 2023-10-19 004003.png"
+    />
+    <link rel="manifest" href="../public/site.webmanifest" />
+    <link rel="stylesheet" href="../public/style.css" />
+    <title><%=siteName%> | Guide</title>
+  </head>
+  <body>
+    <div id="rootContainer">
+      <div id="hAndMContainer">
+        <header>
+          <div id="logoAndNav">
+            <a href="/"
+              ><img
+                id="logo"
+                src="../public/Screenshot 2023-10-19 004003.png"
+                alt="My to do app logo"
+            /></a>
+            <%-include("partials/header.ejs")-%>
+          </div>
+          <hr />
+          <h1>TASK BUDDY GUIDELINES</h1>
+        </header>
+        <main id="guideContainer">
+          <P
+            ><strong>Task Buddy</strong> is your ultimate to-do list application
+            designed to help you manage your daily tasks efficiently.
+          </P>
+          <h2>To make the most of this app, please follow these guidelines:</h2>
+          <ol id="guidelines">
+            <li>
+              You must <strong>signup</strong> to access and use the
+              application..
+            </li>
+            <li>Create a password that is at least 8 characters long.</li>
+            <li>
+              If your chosen <strong>username</strong> is already in use by
+              another user, you'll receive a "user already exists" message.
+              Please select a different username.
+            </li>
+            <li>
+              It's essential to maintain the confidentiality of your password.
+            </li>
+            <li>
+              Entering incorrect login details will result in an error message.
+            </li>
+            <li>
+              In your dashboard, add "what to do" to your list by clicking on
+              the
+              <strong>create_task</strong> button.
+            </li>
+            <li>
+              When a task is completed , click the
+              <strong>pending</strong> button to change the state to
+              <strong>completed</strong>.
+            </li>
+            <li>
+              A task in a "completed" state can be changed back to pending if
+              realized not completed by clicking on the
+              <strong>completed</strong> button.
+            </li>
+            <li>
+              Make sure you delete completed tasks to free your tasks memory.
+            </li>
+            <li>Logout from the app when done to secure your informations.</li>
+          </ol>
+          <a id="anchor" href="/signup">Get statrted</a>
+        </main>
+      </div>
+      <footer><%-include("partials/footer.ejs")-%></footer>
+    </div>
+  </body>
+</html>
